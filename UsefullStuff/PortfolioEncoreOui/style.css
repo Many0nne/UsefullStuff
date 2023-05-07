@@ -1,0 +1,603 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: black;
+    min-height: 100vh;
+}
+
+.PutYourHand {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: url(./images/handprintscanning/hand_02.png);
+    background-size: 500px;
+}
+
+.scan {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+}
+
+.scan .hand {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    background: url(./images/handprintscanning/hand_02.png);
+    background-size: 500px;
+}
+
+.scan .hand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(./images/handprintscanning/hand_01.png);
+    background-size: 500px;
+    animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+    0%,100% {
+        height: 0%
+    }
+
+    50% {
+        height: 100%;
+    }
+}
+
+.scan .hand::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #3fefef;
+    border-radius: 8px;
+    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef) drop-shadow(0 0 120px #3fefef);
+    animation: animateLines 4s ease-in-out infinite;
+}
+
+@keyframes animateLines {
+    0%,100% {
+        top: 0%;
+    }
+
+    50% {
+        top: 100%;
+    }
+}
+
+.scan h3 {
+    text-transform: uppercase;
+    font-size: 2em;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    color:#3fefef;
+    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef);
+    animation: animateText 2s steps(10) infinite;
+}
+
+@keyframes animateText {
+    0%,100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.scan .hand .lines {
+    position: absolute;
+    inset: 0;
+}
+
+.scan .hand .lines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    background: url(./images/handprintscanning/lines.png);
+    background-size: 500px;
+    animation: handLines 4s ease-in-out infinite;
+}
+
+@keyframes handLines {
+    0%,25%,100% {
+        height:  0;
+    }
+
+    50% {
+        height: 100%;
+    }
+}
+
+.scan .hand .lines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    background: url(./images/handprintscanning/points.png);
+    background-size: 500px;
+    animation: handPoints 4s ease-in-out infinite;
+}
+
+@keyframes handPoints {
+    0%,100% {
+        height: 0;
+    }
+
+    50% {
+        height: 100%;
+    }
+}
+
+.scan a {
+    font-weight: 600;
+    margin: 40px;
+    position: relative;
+    padding: 10px 20px;
+    background: #3fefef;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    color: black;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    cursor: pointer;
+    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef) drop-shadow(0 0 120px #3fefef);
+    animation: animateButton 2s steps(10) infinite;
+}
+
+@media (max-width: 510px) {
+    .scan .hand {
+        width: 300px;
+        height: 300px;
+        background-size: 300px;
+    }
+
+    .scan .hand::before {
+        background-size: 300px;
+    }
+
+    .scan .hand::after {
+        height: 5px;
+    }
+
+    .scan h3 {
+        font-size: 1.5em;
+    }
+
+    .scan a {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 320px) {
+    .scan .hand {
+        width: 200px;
+        height: 200px;
+        background-size: 200px;
+    }
+
+    .scan .hand::before {
+        background-size: 200px;
+    }
+
+    .scan .hand::after {
+        height: 3px;
+    }
+
+    .scan h3 {
+        font-size: 1em;
+    }
+
+    .scan a {
+        font-size: .8em;
+    }
+}
+
+@media (max-width: 280px) {
+    .scan .hand {
+        width: 150px;
+        height: 150px;
+        background-size: 150px;
+    }
+
+    .scan .hand::before {
+        background-size: 150px;
+    }
+
+    .scan .hand::after {
+        height: 2px;
+    }
+
+    .scan h3 {
+        font-size: .8em;
+    }
+
+    .scan a {
+        font-size: .6em;
+    }
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    z-index: 1000;
+}
+
+nav .logo {
+    color:#FF0000;
+    font-size: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: 0.6s;
+}
+
+nav ul li a:hover {
+    color: #3fefef;
+    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef) drop-shadow(0 0 120px #3fefef);
+
+}
+
+#actual-nav-ul-li-a {
+    position: relative;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.6s;
+    color: #FF0000;
+    filter: drop-shadow(0 0 20px #FF0000) drop-shadow(0 0 60px #FF0000) drop-shadow(0 0 120px #FF0000);
+}   
+
+#actual-nav-ul-li-a:hover {
+    color: #3fefef;
+    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef) drop-shadow(0 0 120px #3fefef);
+}
+
+.burger {
+    display: none;
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px;
+    transition: 0.6s;
+}
+
+@media screen and (max-width: 1100px) {
+    .burger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    nav {
+        padding: 30px 50px;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    nav {
+        padding: 30px 50px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+    }
+}
+    
+@media screen and (max-width: 500px) {
+    .burger {
+        display: block;
+    }
+
+    nav {
+        padding: 30px 40px;
+    }
+
+    nav ul {
+        display: none;
+    }
+}
+
+.burger-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    padding: 80px 50px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 1000;
+    transition: all 1s ease 0s;
+}
+
+.burger-menu-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    pointer-events: pointer;
+}
+
+.burger-menu-links li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.burger-menu-links li a {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.burger-menu-links li a:hover {
+    color: #3fefef;
+    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef) drop-shadow(0 0 120px #3fefef);
+
+}
+
+.ouragent-container {
+    position: relative;
+    top: 107px;
+    width: 100%;
+    height: calc(100vh - 107px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ouragent-container-left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    background: url(./images/concept-anonyme-moderne-au-design-plat/392109-PCF54L-277.png) no-repeat center center/cover;
+    background-size: 600px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 50px;
+    color: white;
+    text-align: end;
+    transition: all 0.5s ease 0s; 
+}
+
+.ouragent-container-left h2 {
+    cursor: pointer;
+    position: relative;
+    font-size: 3em;
+    font-weight: 700;
+    top: 10%;
+    color: #3fefef;
+    filter: drop-shadow(0 0 20px #3fefef) drop-shadow(0 0 60px #3fefef) drop-shadow(0 0 120px #3fefef);
+}
+
+.ouragent-container-right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 50px;
+    color: white;
+    text-align: justify;
+}
+
+.ouragent-container-right h1 {
+    font-size: 3em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    filter: blur(5px);
+    padding: 0 5px;
+    transition: 0.5s;
+}
+
+/*
+.ouragent-container-right h1:hover {
+    filter: blur(0px) drop-shadow(0 0 20px white) drop-shadow(0 0 60px white) drop-shadow(0 0 120px white);
+    transition: 0.4s;
+}*/
+
+.ouragent-container-right p {
+    filter: blur(5px);
+    padding: 0 5px;
+    transition: 0.5s;
+    font-size: 1.1em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/*
+.ouragent-container-right p:hover {
+    filter: blur(0px);
+    transition: 0.4s;
+}*/
+
+@media screen and (max-width: 1100px) {
+    .ouragent-container {
+        display: grid;
+    }
+
+    .ouragent-container-left {
+        width: 100%;
+        background-size: 50%;
+        height: 40vh;
+    }
+    
+    .ouragent-container-right {
+        width: 100%;
+    }
+
+    .ouragent-container-left h2 {
+        top: 20%;
+    }
+}
+
+.contactus {
+    position: relative;
+    top: 107px;
+    width: 100%;
+    height: calc(100vh - 107px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+span {
+    color: #3fefef;
+    font-size: 1.1em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form {
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px 25px 0px 25px;
+    color: white;
+    text-align: justify;
+}
+
+form input {
+    color: #FF0000;
+    width: fit-content;
+    height: 50px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 1em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: none;
+}
+
+form input::placeholder {
+    color: #FF0000;
+    font-size: 1em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form textarea {
+    background: none;
+    color: #FF0000;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form textarea::placeholder {
+    color: #FF0000;
+    font-size: 1em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+form button {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 1.1em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+form button:hover {
+    background: #FF0000;
+    color: black;
+    filter: drop-shadow(0 0 2px #FF0000) drop-shadow(0 0 6px #FF0000) drop-shadow(0 0 12px #FF0000);
+}
