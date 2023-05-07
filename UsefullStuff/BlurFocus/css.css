@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ff0057, #2196f3);
+}
+
+h1 {
+    position: relative;
+    display: flex;
+    gap: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+h1 span {
+    position: relative;
+    filter: blur(5px);
+    padding: 0 5px;
+    transition: 0.5s;
+}
+
+h1 span:hover {
+    filter: blur(0px);
+    transition: 0.4s;
+}

@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    z-index: 1000;
+}
+
+nav .logo {
+    color:black;
+    font-size: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    position: relative;
+    color:black;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: 0.6s;
+}
+
+.burger {
+    display: none;
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background: black;
+    margin: 5px;
+    transition: 0.6s;
+}
+
+@media screen and (max-width: 960px) {
+    nav {
+        padding: 30px 50px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    nav {
+        padding: 30px 20px;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+}
+    
+@media screen and (max-width: 500px) {
+    .burger {
+        display: block;
+    }
+
+    nav {
+        padding: 30px 40px;
+    }
+
+    nav ul {
+        display: none;
+    }
+}
+
+.burger-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    padding: 80px 50px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 1000;
+}
+
+.burger-menu-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    pointer-events: pointer;
+}
+
+.burger-menu-links li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.burger-menu-links li a {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: black;
+}

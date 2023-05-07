@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: whitesmoke;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: white;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+}
+
+.card span {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card span::before {
+    content: 'On Sale';
+    position: absolute;
+    width: 150%;
+    height: 40px;
+    background: rgb(2, 182, 182);
+    transform: rotate(-45deg) translateY(-20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.1em;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background: rgb(2, 182, 182);
+    z-index: -1;
+    box-shadow: 140px -140px rgb(2, 182, 182);
+}
